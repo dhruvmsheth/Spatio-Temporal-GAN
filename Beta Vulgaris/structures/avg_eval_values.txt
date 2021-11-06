@@ -1,0 +1,14 @@
+--------------------------------------------------
+FutureGAN MSE:  
+1.00000e-03 *
+  7.7610
+[torch.FloatTensor of size 1]
+
+FutureGAN PSNR:  
+ 27.4274
+[torch.FloatTensor of size 1]
+
+FutureGAN SSIM:  
+ 0.7286
+[torch.FloatTensor of size 1]
+

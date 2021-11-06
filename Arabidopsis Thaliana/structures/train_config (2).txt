@@ -1,0 +1,43 @@
+------------- training configuration -------------
+dgx: False
+ngpu: 1
+random_seed: 1630143826
+ext: ['.jpg', '.jpeg', '.png', '.ppm', '.bmp', '.pgm']
+use_ckpt: False
+ckpt_path: None
+data_root: /content/dataset
+log_dir: ./logs
+experiment_name: 
+d_cond: True
+nc: 3
+max_resl: 128
+nframes_in: 6
+nframes_pred: 6
+batch_size_table: {4: 32, 8: 16, 16: 8, 32: 4, 64: 2, 128: 1, 256: 1, 512: 1, 1024: 1}
+trns_tick: 10
+stab_tick: 10
+nz: 512
+ngf: 512
+ndf: 512
+loss: wgan_gp
+d_eps_penalty: True
+acgan: False
+optimizer: adam
+beta1: 0.0
+beta2: 0.99
+lr: 0.001
+lr_decay: 0.87
+lrelu: True
+padding: zero
+w_norm: True
+batch_norm: False
+g_pixelwise_norm: True
+d_gdrop: False
+g_tanh: False
+d_sigmoid: False
+x_add_noise: False
+z_pixelwise_norm: False
+tb_logging: True
+update_tb_every: 100
+save_img_every: 100
+save_ckpt_every: 5

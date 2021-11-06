@@ -1,0 +1,116 @@
+--------------------------------------------------
+Sequences in test dataset:  51
+Number of model parameters: 
+49817091
+--------------------------------------------------
+Model structure: 
+Sequential(
+  (from_rgb_block): Sequential(
+    (high_resl_from_rgb): Sequential(
+      (0): EqualizedConv3d(
+        (conv): Conv3d(3, 512, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+      )
+      (1): LeakyReLU(0.2)
+      (2): PixelwiseNormLayer(
+      )
+    )
+  )
+  (intermediate_encode_16x16_8x8): Sequential(
+    (high_resl_block_encode): Sequential(
+      (0): EqualizedConv3d(
+        (conv): Conv3d(512, 512, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+      )
+      (1): LeakyReLU(0.2)
+      (2): PixelwiseNormLayer(
+      )
+      (3): EqualizedConv3d(
+        (conv): Conv3d(512, 512, kernel_size=(1, 2, 2), stride=(1, 2, 2), bias=False)
+      )
+      (4): LeakyReLU(0.2)
+      (5): PixelwiseNormLayer(
+      )
+    )
+  )
+  (intermediate_encode_8x8_4x4): Sequential(
+    (high_resl_block_encode): Sequential(
+      (0): EqualizedConv3d(
+        (conv): Conv3d(512, 512, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+      )
+      (1): LeakyReLU(0.2)
+      (2): PixelwiseNormLayer(
+      )
+      (3): EqualizedConv3d(
+        (conv): Conv3d(512, 512, kernel_size=(1, 2, 2), stride=(1, 2, 2), bias=False)
+      )
+      (4): LeakyReLU(0.2)
+      (5): PixelwiseNormLayer(
+      )
+    )
+  )
+  (middle_block): Sequential(
+    (0): EqualizedConv3d(
+      (conv): Conv3d(512, 512, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+    )
+    (1): LeakyReLU(0.2)
+    (2): PixelwiseNormLayer(
+    )
+    (3): EqualizedConv3d(
+      (conv): Conv3d(512, 512, kernel_size=(6, 1, 1), stride=(1, 1, 1), bias=False)
+    )
+    (4): LeakyReLU(0.2)
+    (5): PixelwiseNormLayer(
+    )
+    (6): EqualizedConvTranspose3d(
+      (deconv): ConvTranspose3d(512, 512, kernel_size=(6, 1, 1), stride=(1, 1, 1), bias=False)
+    )
+    (7): LeakyReLU(0.2)
+    (8): PixelwiseNormLayer(
+    )
+    (9): EqualizedConv3d(
+      (conv): Conv3d(512, 512, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+    )
+    (10): LeakyReLU(0.2)
+    (11): PixelwiseNormLayer(
+    )
+  )
+  (intermediate_decode_4x4_8x8): Sequential(
+    (high_resl_block_decode): Sequential(
+      (0): EqualizedConvTranspose3d(
+        (deconv): ConvTranspose3d(512, 512, kernel_size=(1, 2, 2), stride=(1, 2, 2), bias=False)
+      )
+      (1): LeakyReLU(0.2)
+      (2): PixelwiseNormLayer(
+      )
+      (3): EqualizedConv3d(
+        (conv): Conv3d(512, 512, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+      )
+      (4): LeakyReLU(0.2)
+      (5): PixelwiseNormLayer(
+      )
+    )
+  )
+  (intermediate_decode_8x8_16x16): Sequential(
+    (high_resl_block_decode): Sequential(
+      (0): EqualizedConvTranspose3d(
+        (deconv): ConvTranspose3d(512, 512, kernel_size=(1, 2, 2), stride=(1, 2, 2), bias=False)
+      )
+      (1): LeakyReLU(0.2)
+      (2): PixelwiseNormLayer(
+      )
+      (3): EqualizedConv3d(
+        (conv): Conv3d(512, 512, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+      )
+      (4): LeakyReLU(0.2)
+      (5): PixelwiseNormLayer(
+      )
+    )
+  )
+  (to_rgb_block): Sequential(
+    (high_resl_to_rgb): Sequential(
+      (0): EqualizedConv3d(
+        (conv): Conv3d(512, 3, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+      )
+    )
+  )
+)
+--------------------------------------------------

@@ -1,0 +1,329 @@
+--------------------------------------------------
+Sequences in Dataset:  51
+Global iteration step:  522 , Epoch:  81
+Phase:  stab
+Number of Generator`s model parameters: 
+72760838
+Number of Discriminator`s model parameters: 
+85154049
+--------------------------------------------------
+New Generator structure: 
+FutureGenerator(
+  (model): Sequential(
+    (concat_block_encode): Concat(
+      (layer1): Sequential(
+        (low_resl_from_rgb): Sequential(
+          (from_rgb_block): Sequential(
+            (high_resl_from_rgb): Sequential(
+              (0): EqualizedConv3d(
+                (conv): Conv3d(3, 512, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+              )
+              (1): LeakyReLU(0.2)
+              (2): PixelwiseNormLayer(
+              )
+            )
+          )
+        )
+        (low_resl_downsample): Sequential(
+          (0): EqualizedConv3d(
+            (conv): Conv3d(512, 512, kernel_size=(1, 2, 2), stride=(1, 2, 2), bias=False)
+          )
+          (1): LeakyReLU(0.2)
+          (2): PixelwiseNormLayer(
+          )
+        )
+      )
+      (layer2): Sequential(
+        (high_resl_from_rgb): Sequential(
+          (0): EqualizedConv3d(
+            (conv): Conv3d(3, 256, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+          )
+          (1): LeakyReLU(0.2)
+          (2): PixelwiseNormLayer(
+          )
+        )
+        (high_resl_block_encode): Sequential(
+          (0): EqualizedConv3d(
+            (conv): Conv3d(256, 256, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+          )
+          (1): LeakyReLU(0.2)
+          (2): PixelwiseNormLayer(
+          )
+          (3): EqualizedConv3d(
+            (conv): Conv3d(256, 512, kernel_size=(1, 2, 2), stride=(1, 2, 2), bias=False)
+          )
+          (4): LeakyReLU(0.2)
+          (5): PixelwiseNormLayer(
+          )
+        )
+      )
+    )
+    (fadein_block_encode): FadeInLayer(
+    )
+    (intermediate_encode_32x32_16x16): Sequential(
+      (high_resl_block_encode): Sequential(
+        (0): EqualizedConv3d(
+          (conv): Conv3d(512, 512, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+        )
+        (1): LeakyReLU(0.2)
+        (2): PixelwiseNormLayer(
+        )
+        (3): EqualizedConv3d(
+          (conv): Conv3d(512, 512, kernel_size=(1, 2, 2), stride=(1, 2, 2), bias=False)
+        )
+        (4): LeakyReLU(0.2)
+        (5): PixelwiseNormLayer(
+        )
+      )
+    )
+    (intermediate_encode_16x16_8x8): Sequential(
+      (high_resl_block_encode): Sequential(
+        (0): EqualizedConv3d(
+          (conv): Conv3d(512, 512, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+        )
+        (1): LeakyReLU(0.2)
+        (2): PixelwiseNormLayer(
+        )
+        (3): EqualizedConv3d(
+          (conv): Conv3d(512, 512, kernel_size=(1, 2, 2), stride=(1, 2, 2), bias=False)
+        )
+        (4): LeakyReLU(0.2)
+        (5): PixelwiseNormLayer(
+        )
+      )
+    )
+    (intermediate_encode_8x8_4x4): Sequential(
+      (high_resl_block_encode): Sequential(
+        (0): EqualizedConv3d(
+          (conv): Conv3d(512, 512, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+        )
+        (1): LeakyReLU(0.2)
+        (2): PixelwiseNormLayer(
+        )
+        (3): EqualizedConv3d(
+          (conv): Conv3d(512, 512, kernel_size=(1, 2, 2), stride=(1, 2, 2), bias=False)
+        )
+        (4): LeakyReLU(0.2)
+        (5): PixelwiseNormLayer(
+        )
+      )
+    )
+    (middle_block): Sequential(
+      (0): EqualizedConv3d(
+        (conv): Conv3d(512, 512, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+      )
+      (1): LeakyReLU(0.2)
+      (2): PixelwiseNormLayer(
+      )
+      (3): EqualizedConv3d(
+        (conv): Conv3d(512, 512, kernel_size=(6, 1, 1), stride=(1, 1, 1), bias=False)
+      )
+      (4): LeakyReLU(0.2)
+      (5): PixelwiseNormLayer(
+      )
+      (6): EqualizedConvTranspose3d(
+        (deconv): ConvTranspose3d(512, 512, kernel_size=(6, 1, 1), stride=(1, 1, 1), bias=False)
+      )
+      (7): LeakyReLU(0.2)
+      (8): PixelwiseNormLayer(
+      )
+      (9): EqualizedConv3d(
+        (conv): Conv3d(512, 512, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+      )
+      (10): LeakyReLU(0.2)
+      (11): PixelwiseNormLayer(
+      )
+    )
+    (intermediate_decode_4x4_8x8): Sequential(
+      (high_resl_block_decode): Sequential(
+        (0): EqualizedConvTranspose3d(
+          (deconv): ConvTranspose3d(512, 512, kernel_size=(1, 2, 2), stride=(1, 2, 2), bias=False)
+        )
+        (1): LeakyReLU(0.2)
+        (2): PixelwiseNormLayer(
+        )
+        (3): EqualizedConv3d(
+          (conv): Conv3d(512, 512, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+        )
+        (4): LeakyReLU(0.2)
+        (5): PixelwiseNormLayer(
+        )
+      )
+    )
+    (intermediate_decode_8x8_16x16): Sequential(
+      (high_resl_block_decode): Sequential(
+        (0): EqualizedConvTranspose3d(
+          (deconv): ConvTranspose3d(512, 512, kernel_size=(1, 2, 2), stride=(1, 2, 2), bias=False)
+        )
+        (1): LeakyReLU(0.2)
+        (2): PixelwiseNormLayer(
+        )
+        (3): EqualizedConv3d(
+          (conv): Conv3d(512, 512, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+        )
+        (4): LeakyReLU(0.2)
+        (5): PixelwiseNormLayer(
+        )
+      )
+    )
+    (intermediate_decode_16x16_32x32): Sequential(
+      (high_resl_block_decode): Sequential(
+        (0): EqualizedConvTranspose3d(
+          (deconv): ConvTranspose3d(512, 512, kernel_size=(1, 2, 2), stride=(1, 2, 2), bias=False)
+        )
+        (1): LeakyReLU(0.2)
+        (2): PixelwiseNormLayer(
+        )
+        (3): EqualizedConv3d(
+          (conv): Conv3d(512, 512, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+        )
+        (4): LeakyReLU(0.2)
+        (5): PixelwiseNormLayer(
+        )
+      )
+    )
+    (concat_block_decode): Concat(
+      (layer1): Sequential(
+        (low_resl_upsample): Sequential(
+          (0): EqualizedConvTranspose3d(
+            (deconv): ConvTranspose3d(512, 512, kernel_size=(1, 2, 2), stride=(1, 2, 2), bias=False)
+          )
+          (1): LeakyReLU(0.2)
+          (2): PixelwiseNormLayer(
+          )
+        )
+        (low_resl_to_rgb): Sequential(
+          (to_rgb_block): Sequential(
+            (high_resl_to_rgb): Sequential(
+              (0): EqualizedConv3d(
+                (conv): Conv3d(512, 3, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+              )
+            )
+          )
+        )
+      )
+      (layer2): Sequential(
+        (high_resl_block_decode): Sequential(
+          (0): EqualizedConvTranspose3d(
+            (deconv): ConvTranspose3d(512, 256, kernel_size=(1, 2, 2), stride=(1, 2, 2), bias=False)
+          )
+          (1): LeakyReLU(0.2)
+          (2): PixelwiseNormLayer(
+          )
+          (3): EqualizedConv3d(
+            (conv): Conv3d(256, 256, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+          )
+          (4): LeakyReLU(0.2)
+          (5): PixelwiseNormLayer(
+          )
+        )
+        (high_resl_to_rgb): Sequential(
+          (0): EqualizedConv3d(
+            (conv): Conv3d(256, 3, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+          )
+        )
+      )
+    )
+    (fadein_block_decode): FadeInLayer(
+    )
+  )
+)
+--------------------------------------------------
+New Discriminator structure: 
+Discriminator(
+  (model): Sequential(
+    (concat_block): Concat(
+      (layer1): Sequential(
+        (low_resl_from_rgb): Sequential(
+          (from_rgb_block): Sequential(
+            (high_resl_from_rgb): Sequential(
+              (0): EqualizedConv3d(
+                (conv): Conv3d(3, 512, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+              )
+              (1): LeakyReLU(0.2)
+            )
+          )
+        )
+        (low_resl_downsample): Sequential(
+          (0): EqualizedConv3d(
+            (conv): Conv3d(512, 512, kernel_size=(1, 2, 2), stride=(1, 2, 2), bias=False)
+          )
+          (1): LeakyReLU(0.2)
+        )
+      )
+      (layer2): Sequential(
+        (high_resl_from_rgb): Sequential(
+          (0): EqualizedConv3d(
+            (conv): Conv3d(3, 256, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+          )
+          (1): LeakyReLU(0.2)
+        )
+        (high_resl_block): Sequential(
+          (0): EqualizedConv3d(
+            (conv): Conv3d(256, 256, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+          )
+          (1): LeakyReLU(0.2)
+          (2): EqualizedConv3d(
+            (conv): Conv3d(256, 512, kernel_size=(1, 2, 2), stride=(1, 2, 2), bias=False)
+          )
+          (3): LeakyReLU(0.2)
+        )
+      )
+    )
+    (fadein_block): FadeInLayer(
+    )
+    (intermediate_32x32_16x16): Sequential(
+      (high_resl_block): Sequential(
+        (0): EqualizedConv3d(
+          (conv): Conv3d(512, 512, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+        )
+        (1): LeakyReLU(0.2)
+        (2): EqualizedConv3d(
+          (conv): Conv3d(512, 512, kernel_size=(1, 2, 2), stride=(1, 2, 2), bias=False)
+        )
+        (3): LeakyReLU(0.2)
+      )
+    )
+    (intermediate_16x16_8x8): Sequential(
+      (high_resl_block): Sequential(
+        (0): EqualizedConv3d(
+          (conv): Conv3d(512, 512, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+        )
+        (1): LeakyReLU(0.2)
+        (2): EqualizedConv3d(
+          (conv): Conv3d(512, 512, kernel_size=(1, 2, 2), stride=(1, 2, 2), bias=False)
+        )
+        (3): LeakyReLU(0.2)
+      )
+    )
+    (intermediate_8x8_4x4): Sequential(
+      (high_resl_block): Sequential(
+        (0): EqualizedConv3d(
+          (conv): Conv3d(512, 512, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+        )
+        (1): LeakyReLU(0.2)
+        (2): EqualizedConv3d(
+          (conv): Conv3d(512, 512, kernel_size=(1, 2, 2), stride=(1, 2, 2), bias=False)
+        )
+        (3): LeakyReLU(0.2)
+      )
+    )
+    (last_block): Sequential(
+      (0): MinibatchStdConcatLayer(averaging = all)
+      (1): EqualizedConv3d(
+        (conv): Conv3d(513, 512, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), bias=False)
+      )
+      (2): LeakyReLU(0.2)
+      (3): EqualizedConv3d(
+        (conv): Conv3d(512, 512, kernel_size=(12, 4, 4), stride=(1, 1, 1), bias=False)
+      )
+      (4): LeakyReLU(0.2)
+      (5): Flatten(
+      )
+      (6): EqualizedLinear(
+        (linear): Linear(in_features=512, out_features=1, bias=False)
+      )
+    )
+  )
+)
+--------------------------------------------------

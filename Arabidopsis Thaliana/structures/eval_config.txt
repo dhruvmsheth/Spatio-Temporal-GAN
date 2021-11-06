@@ -1,0 +1,20 @@
+------------- test configuration -------------
+random_seed: 1630152682
+ext: ['.jpg', '.jpeg', '.png', '.ppm', '.bmp', '.pgm']
+model_path: /content/gdrive/MyDrive/plants-A4/trial-1/gen_E60_I255_R16x16_stab.pth.tar
+model: FutureGAN
+data_root: /content/dataset
+test_dir: ./tests
+experiment_name: 
+nc: 3
+resl: 128
+nframes_pred: 6
+nframes_in: 6
+deep_pred: 1
+batch_size: 1
+metrics: None
+save_frames_every: 1
+save_gif_every: 1
+in_border: black
+out_border: red
+npx_border: 2
